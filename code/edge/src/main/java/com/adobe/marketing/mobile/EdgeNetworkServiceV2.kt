@@ -4,8 +4,8 @@ import com.adobe.marketing.mobile.services.HttpConnecting
 import com.adobe.marketing.mobile.services.HttpMethod
 import com.adobe.marketing.mobile.services.Log
 import com.adobe.marketing.mobile.services.NetworkRequest
-import com.adobe.marketing.mobile.services.NetworkServiceV2
 import com.adobe.marketing.mobile.util.StringUtils
+import com.adobe.marketing.mobile.util.SuspendableNetworkServices
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.BufferedReader
@@ -202,7 +202,7 @@ internal class EdgeNetworkServiceV2() {
         )
         val countDownLatch = CountDownLatch(1)
         val httpConnecting = arrayOfNulls<HttpConnecting>(1)
-        return NetworkServiceV2().connect(networkRequest)
+        return SuspendableNetworkServices.connect(networkRequest)
     }
 
     /**
