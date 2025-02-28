@@ -4,9 +4,9 @@ import com.adobe.marketing.mobile.EdgeNetworkService.ResponseCallback
 import com.adobe.marketing.mobile.edge.Datastream
 import com.adobe.marketing.mobile.edge.SDKConfig
 import com.adobe.marketing.mobile.services.DataEntity
-import com.adobe.marketing.mobile.services.HitProcessingV2
 import com.adobe.marketing.mobile.services.Log
 import com.adobe.marketing.mobile.services.NamedCollection
+import com.adobe.marketing.mobile.services.SuspendableHitProcessing
 import com.adobe.marketing.mobile.util.DataReader
 import com.adobe.marketing.mobile.util.MapUtils
 import com.adobe.marketing.mobile.util.StringUtils
@@ -23,7 +23,7 @@ internal class EdgeHitProcessorV2(
     namedCollection: NamedCollection,
     callback: EdgeSharedStateCallback?,
     stateCallback: EdgeStateCallback?
-) : HitProcessingV2 {
+) : SuspendableHitProcessing {
     private val namedCollection: NamedCollection
     private val sharedStateCallback: EdgeSharedStateCallback?
     private val stateCallback: EdgeStateCallback?

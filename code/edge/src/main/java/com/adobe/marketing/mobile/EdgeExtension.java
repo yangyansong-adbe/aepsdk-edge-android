@@ -99,13 +99,13 @@ class EdgeExtension extends Extension {
 			);
 
 			final DataQueue dataQueue = ServiceProvider.getInstance().getDataQueueService().getDataQueue(getName());
-//			this.hitQueue = new PersistentHitQueue(dataQueue, hitProcessor);
-			this.hitQueue = new PersistentHitQueueV2(dataQueue, new EdgeHitProcessorV2(
-					getNetworkResponseHandler(),
-					getNamedCollection(),
-					sharedStateCallback,
-					new EdgeExtensionStateCallback()
-			));
+			this.hitQueue = new PersistentHitQueue(dataQueue, hitProcessor);
+//			this.hitQueue = new PersistentHitQueueV2(dataQueue, new EdgeHitProcessorV2(
+//					getNetworkResponseHandler(),
+//					getNamedCollection(),
+//					sharedStateCallback,
+//					new EdgeExtensionStateCallback()
+//			));
 		} else {
 			this.hitQueue = hitQueue;
 		}
