@@ -18,16 +18,24 @@ import com.adobe.marketing.mobile.LoggingMode
 import com.adobe.marketing.mobile.MobileCore
 import com.adobe.marketing.mobile.edge.consent.Consent
 import com.adobe.marketing.mobile.edge.identity.Identity
+import com.adobe.marketing.mobile.services.NetworkCallback
+import com.adobe.marketing.mobile.services.NetworkRequest
+import com.adobe.marketing.mobile.services.Networking
+import com.adobe.marketing.mobile.services.ServiceProvider
 
 class TestApplication : Application() {
     // TODO: Set up the preferred Environment File ID from your mobile property configured in Data Collection UI
-    private var ENVIRONMENT_FILE_ID: String = ""
+    private var ENVIRONMENT_FILE_ID: String = "94f571f308d5/de953fa166e4/launch-f122c57f66ad-development"
 
     override fun onCreate() {
         super.onCreate()
 
         MobileCore.setLogLevel(LoggingMode.VERBOSE)
         MobileCore.setApplication(this)
+
+        ServiceProvider.getInstance().networkService = Networking { request, callback ->
+            TODO("Not yet implemented")
+        }
 
         MobileCore.registerExtensions(
             listOf(
@@ -41,3 +49,4 @@ class TestApplication : Application() {
         }
     }
 }
+
